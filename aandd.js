@@ -12,13 +12,13 @@ function show(array) {
 }
 
 function createSequentialNumbers(array, n) {
-    for (i = 0; i < n; i++) {
+    for (var i = 0; i < n; i++) {
         array.push(i + 1);
     }
 }
 
 function createRandomNumbers(array, n) {
-    for (i = 0; i < n; i++) {
+    for (var i = 0; i < n; i++) {
         num = Math.floor(Math.random() * 100);
         array.push(num);
     }
