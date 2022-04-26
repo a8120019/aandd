@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var x = document.getElementById('x').value;
+            var y = document.getElementById('y').value;
+            var a = 1;
+            var b;
+            var c = 0;
+            var d;
+            var numbers = [];
+            // xとyの大小を調べる
+            if (x - y >= 0) {
+                b = y;
+            } else {
+                b = x;
+            }
+            // 素数リストを作る
+            for (var i = 2; i <= b; i++) {
+                c = 0;
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        c++;
+                    }
+                }
+                if (c == 0) {
+                    numbers.push(i);
+                }
+            }
+            // リストの中身で割る
+            for (var k = 0;k < numbers.length;k++){
+                d = numbers[k];
+                if (x % d == 0 && y % d == 0){
+                    a = a * d;
+                    x = x / d;
+                    y = y / d;
+                    k = -1
+                }
+            }
+            var answer = a * x * y;
+            document.getElementById('answer').value = answer;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>最小公倍数</h1>
+    x:<input id="x" type="number"> y:<input id="y" type="number">
+    <button onclick="runButtonPressed()">GO!</button><br>
+    → <input id="answer" type="number">
+    <p id="res"></p>
+</body>
+
+</html>
