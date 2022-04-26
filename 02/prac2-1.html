@@ -10,10 +10,34 @@
 
     <script>
         function runButtonPressed() {
+            var numbers = [];
+            createSequentialNumbers(numbers, 10)
             //prac2-1 10個の順数（１，２，３．．．の数列）を生成し，２番目と４番目を入れ替える
+
+            // var tmp = numbers[1];
+            // numbers[1] = numbers[3];
+            // numbers[3] = tmp;
+
             //prac2-2 10個の順数を生成し，n番目とm番目を入れ替える
             //(nとmは乱数にて決定する)
+
+            // var m = Math.floor(Math.random() * 10);
+            // var n = Math.floor(Math.random() * 10);
+            // var tmp = numbers[m];
+            // numbers[m] = numbers[n];
+            // numbers[n] = tmp;
+
             //prac2-3 prac2-2を20回繰り返す（シャッフルプログラムの完成）
+            var m;
+            var n;
+            for (var i = 0; i < 20; i++) {
+                m = Math.floor(Math.random() * 10);
+                n = Math.floor(Math.random() * 10);
+                var tmp = numbers[m];
+                numbers[m] = numbers[n];
+                numbers[n] = tmp;
+            }
+            show(numbers);
         }
     </script>
 
