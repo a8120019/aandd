@@ -10,10 +10,41 @@
 
     <script>
         function runButtonPressed() {
+            var numbers = [];
+            createSequentialNumbers(numbers, 10);
             //prac3-1 10個の乱数の合計を求める（繰り返しで）
+            show(numbers);
+            var sum = 0;
+            for (var i = 0;i < numbers.length;i++) {
+                sum += numbers[i];
+            }
+            show(sum);
             //prac3-2 10個の乱数の平均を求める
+            var avg = sum / numbers.length;
+            show(avg);
             //prac3-3 10個の乱数の最大値を求める
+            numbers = [];
+            // 0~20の配列を作る
+            for (var i = 0; i < 10; i++) {
+                num = Math.floor(Math.random() * 21);
+                numbers.push(num);
+            }
+            show(numbers);
+            var max = -1;
+            for (var i = 0; i < numbers.length; i++) {
+                if (max < numbers[i]){
+                    max = numbers[i];
+                }
+            }
+            show(max);
             //prac3-4 10個の乱数の最小値を求める
+            var min = 21;
+            for (var i = 0; i < numbers.length; i++) {
+                if (min > numbers[i]) {
+                    min = numbers[i];
+                }
+            }
+            show(min);
         }
     </script>
 
