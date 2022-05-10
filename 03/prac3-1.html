@@ -24,11 +24,7 @@
             show(avg);
             //prac3-3 10個の乱数の最大値を求める
             numbers = [];
-            // 0~20の配列を作る
-            for (var i = 0; i < 10; i++) {
-                num = Math.floor(Math.random() * 21);
-                numbers.push(num);
-            }
+            randomTwentyNumbers(numbers, 10)
             show(numbers);
             var max = -1;
             for (var i = 0; i < numbers.length; i++) {

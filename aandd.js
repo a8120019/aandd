@@ -29,3 +29,10 @@ function createRandomNumbers(array, n) {
         array.push(num);
     }
 }
+
+function randomTwentyNumbers(array, n) {
+    for (var i = 0; i < n; i++) {
+        num = Math.floor(Math.random() * 21);
+        array.push(num);
+    }
+}
