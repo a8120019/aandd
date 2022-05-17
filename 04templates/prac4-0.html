@@ -13,51 +13,126 @@
             var numbers = [];
             createMyOrderedRandomNumbers(numbers, 10);
             show(numbers);
-            plusNumbers(numbers, 2);
-            extractUpperNumbers(numbers, 10);
+            // plusNumbers(numbers, 2);
+            // extractUpperNumbers(numbers, 10);
             var searchn = document.getElementById('searchnum').value;
+            linearSearch(numbers, searchn);
+            binarySearch(numbers, searchn);
         }
 
         function createMyOrderedRandomNumbers(numbers, n) {
             var num = 0;
             var add;
-            for (var i = 0;i < n;i++){
+            for (var i = 0; i < n; i++) {
                 add = Math.floor(Math.random() * 5) + 1;
                 num = num + add;
                 numbers.push(num);
             }
         }
 
-        function plusNumbers(array, n){
-            for(var i = 0;i < array.length;i++){
-                array[i] = array[i] + 2;
+        function plusNumbers(array, n) {
+            var plnums = [];
+            for (var i = 0; i < array.length; i++) {
+                plnums.push(array[i] + 2);
             }
-            show(array);
+            show(plnums);
         }
 
-        function extractUpperNumbers(array, n){
+        function extractUpperNumbers(array, n) {
             exnums = [];
-            for(var i = 0;i < array.length;i++){
-                if (array[i] >= n){
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] >= n) {
                     exnums.push(array[i])
                 }
             }
             show(exnums);
         }
 
-        function linearSearch(numbers, ans){
-            var disc = false;
-            for(var i = 0;i < numbers.length;i++){
+        function linearSearch(numbers, ans) {
+            var disc;
+            for (var i = 0; i < numbers.length; i++) {
                 if (numbers[i] == ans) {
                     disc = i;
                 }
             }
-            if (disc == false) {
-                show("見つかりませんでした");
-            } else {
+            if (numbers[disc] == ans) {
                 show(disc);
+            } else {
+                show("見つかりませんでした");
             }
         }
+
+        function binarySearch(numbers, ans) {
+            var disc;
+            var lower = 0;
+            var upper = numbers.length - 1;
+            var mid;
+            for (var i = 0; i < 10; i++) {
+                console.log("lower: " + lower);
+                console.log("upper: " + upper);
+                mid = Math.floor((lower + upper) / 2);
+                console.log(mid);
+                if (numbers[mid] == ans) {  // 一致した時
+                    disc = mid;
+                    break;
+                } else if (numbers[mid] < ans) {  // 対象数字以下を抽出
+                    lower = mid;
+                } else if (numbers[mid] > ans) {  // 対象数字以上を抽出
+                    upper = mid;
+                }
+                if (upper - lower == 1) {
+                    if (lower == 0){
+                        disc = lower;
+                    } else {
+                        disc = upper;
+                    }
+                    break;
+                }
+            }
+            if (numbers[disc] == ans) {
+                show(disc);
+            } else {
+                show("見つかりませんでした");
+            }
+        }
+
+        // function binarySearch(numbers, ans) {
+        //     var ok = 0;
+        //     var disc;
+        //     var newnums = numbers;
+        //     var exnums;
+        //     var lower = 0;
+        //     var upper = numbers.length - 1;
+        //     var mid;
+        //     for (var i = 0;i < numbers.length; i++) {
+        //         exnums = [];
+        //         console.log("lower: " + lower);
+        //         console.log("upper: " + upper);
+        //         for (var j = lower;j < upper + 1;j++){
+        //             exnums.push(numbers[j]);
+        //         }
+        //         mid = Math.round(exnums.length / 2) - 1;
+        //         console.log(exnums);
+        //         console.log(mid);
+        //         console.log(exnums[mid]);
+        //         if (exnums[mid] == ans) {  // 一致した時
+        //             disc = mid;
+        //             break;
+        //         } else if (exnums[mid] < ans) {  // 対象数字以下を抽出
+        //             lower = lower + mid;
+        //         } else if (exnums[mid] > ans) {  // 対象数字以上を抽出
+        //             upper = mid;
+        //         }
+        //         if (upper - lower == 1){
+        //             break;
+        //         }
+        //     }
+        //     if (newnums[disc] == ans) {
+        //         show(disc);
+        //     } else {
+        //         show("見つかりませんでした");
+        //     }
+        // }
     </script>
 
 </head>
