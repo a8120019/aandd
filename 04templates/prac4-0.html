@@ -13,22 +13,41 @@
             var numbers = [];
             createMyOrderedRandomNumbers(numbers, 10);
             show(numbers);
+            plusNumbers(numbers, 2);
+            extractUpperNumbers(numbers, 10);
             var searchn = document.getElementById('searchnum').value;
         }
 
         function createMyOrderedRandomNumbers(numbers, n) {
             var num = 0;
             var add;
-            for (i = 0;i < n;i++){
+            for (var i = 0;i < n;i++){
                 add = Math.floor(Math.random() * 5) + 1;
                 num = num + add;
                 numbers.push(num);
             }
         }
 
+        function plusNumbers(array, n){
+            for(var i = 0;i < array.length;i++){
+                array[i] = array[i] + 2;
+            }
+            show(array);
+        }
+
+        function extractUpperNumbers(array, n){
+            exnums = [];
+            for(var i = 0;i < array.length;i++){
+                if (array[i] >= n){
+                    exnums.push(array[i])
+                }
+            }
+            show(exnums);
+        }
+
         function linearSearch(numbers, ans){
             var disc = false;
-            for(i = 0;i < numbers.length;i++){
+            for(var i = 0;i < numbers.length;i++){
                 if (numbers[i] == ans) {
                     disc = i;
                 }
