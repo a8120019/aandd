@@ -24,6 +24,7 @@
         function runButtonPressed() {
             var noun;
             var verb;
+            var char;
             var sentence = "こんにちは";
             var reverse = "こんばんは";
             var reverses;
@@ -34,7 +35,7 @@
                 sentences = sentence.split('');;
                 reverses = [];
                 for (var i = 0; i < sentences.length + reverses.length; i++) {
-                    var char = sentences.pop();
+                    char = sentences.pop();
                     reverses.push(char);
                 }
                 reverse = reverses.join("");
