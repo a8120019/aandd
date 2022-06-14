@@ -22,10 +22,24 @@
         });
 
         function runButtonPressed() {
-            var noun1 = selectone(nouns);
-            var noun2 = selectone(nouns);
-            var verb = selectone(verbs);
-            show(noun1 + "は" + noun2 + "を" + verb);
+            var noun;
+            var verb;
+            var sentence = "こんにちは";
+            var reverse = "こんばんは";
+            var reverses;
+            while (sentence != reverse){
+                noun = selectone(nouns);
+                verb = selectone(verbs);
+                sentence = noun + verb;
+                sentences = sentence.split('');;
+                reverses = [];
+                for (var i = 0; i < sentences.length + reverses.length; i++) {
+                    var char = sentences.pop();
+                    reverses.push(char);
+                }
+                reverse = reverses.join("");
+            }
+            show(sentence);
         }
 
         function selectone(array) {
@@ -39,7 +53,7 @@
 </head>
 
 <body>
-    <h1>prac6-3 作文さん</h1>
+    <h1>prac6-4 回文さん</h1>
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
 

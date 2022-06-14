@@ -12,10 +12,11 @@
         function runButtonPressed() {
             var text = document.getElementById('tf1').value;
             show(text);
+            var char;
             var chars = text.split('');
             var reverses = [];
             for (var i = 0; i < chars.length + reverses.length; i++) {
-                var char = chars.pop();
+                char = chars.pop();
                 reverses.push(char);
             }
             var changed_text = reverses.join("");
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-    <h1>split</h1>
+    <h1>prac6-1 文字列反転</h1>
     <input id="tf1" type="text" value="こんにちは">
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
