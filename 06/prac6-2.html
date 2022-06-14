@@ -13,9 +13,18 @@
             var text = document.getElementById('tf1').value;
             show(text);
             var chars = text.split('');
-            show(chars);
-            var text2 = chars.join('');
-            show(text2);
+            var reverses = [];
+            for (var i = 0; i < chars.length + reverses.length; i++) {
+                var char = chars.pop();
+                reverses.push(char);
+            }
+            var changed_text = reverses.join("");
+            show(changed_text);
+            if (text == changed_text) {
+                show("回文です");
+            } else {
+                show("回文ではありません");
+            }
         }
 
     </script>
