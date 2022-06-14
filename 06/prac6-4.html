@@ -28,6 +28,7 @@
             var sentence = "こんにちは";
             var reverse = "こんばんは";
             var reverses;
+            var count = 0;
             while (sentence != reverse){
                 noun = selectone(nouns);
                 verb = selectone(verbs);
@@ -39,7 +40,9 @@
                     reverses.push(char);
                 }
                 reverse = reverses.join("");
+                count++
             }
+            console.log(count);
             show(sentence);
         }
 
